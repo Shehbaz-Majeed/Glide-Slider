@@ -5,9 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <!-- Required Core Stylesheet -->
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+  
+  <!-- Optional Theme Stylesheet -->
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
   <!-- Other head elements -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+  <script src="/glide.min.js"></script>
 
 </head>
 
@@ -21,14 +26,19 @@
         <!-- Add more slides as needed -->
       </ul>
     </div>
-    <div class="glide__controls">
-      <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-      <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+    <div data-glide-el="controls">
+      <button data-glide-dir="<">Start</button>
+      <button data-glide-dir=">">End</button>
     </div>
 
   </div>
   <script>
-    new Glide('.glide').mount();
+    new Glide('.glide', {
+      type: 'slider', // or 'slider'
+      startAt: 1, // Start at the first slide
+      perView: 3, // Number of slides per view
+      focusAt: 'center' // Center the active slide
+    }).mount();
   </script>
 </body>
 
